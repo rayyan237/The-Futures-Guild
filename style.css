@@ -817,10 +817,11 @@ p {
   color: var(--white);
 }
 /* --- SCROLL REVEAL ANIMATIONS --- */
+/* Overriding the scroll reveal to keep everything visible */
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Premium, smooth deceleration */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 .reveal.active {
@@ -1160,4 +1161,14 @@ html.is-scrolling::-webkit-scrollbar-thumb,
     height: 55px;
     font-size: 1.6rem;
   }
+}
+
+/* Removes the ugly blue tap highlight on mobile devices */
+.process-step, 
+.orb, 
+.process-content,
+.bento-container,
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
 }

@@ -43,8 +43,8 @@ if (container) {
 
     function animate() {
         requestAnimationFrame(animate);
-        particlesMesh.rotation.y += 0.0003; 
-        particlesMesh.rotation.x += 0.0002;
+        particlesMesh.rotation.y += 0.0005; 
+        particlesMesh.rotation.x += 0.0005;
         particlesMesh.rotation.y += mouseX * 0.02;
         particlesMesh.rotation.x += mouseY * 0.02;
         renderer.render(scene, camera);
@@ -67,29 +67,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// --- SCROLL REVEAL ANIMATION ---
-// Uses IntersectionObserver for highly optimized scroll performance
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealOptions = {
-    threshold: 0.15, // Triggers when 15% of the section is visible
-    rootMargin: "0px 0px -50px 0px" // Slightly delays the trigger until it passes the bottom lip of the screen
-};
-
-const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target); // Stops observing once animated to save performance
-        }
-    });
-}, revealOptions);
-
-revealElements.forEach(el => {
-    revealOnScroll.observe(el);
-});
 
 // --- Mobile Menu Toggle ---
 const menuToggle = document.querySelector('#mobile-menu');
