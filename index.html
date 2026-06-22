@@ -472,7 +472,7 @@
               </div>
               <div>
                 <span class="contact-label">Email Us</span>
-                <p class="contact-value">hello@thefuturesguild.com</p>
+                <p class="contact-value">contact.thefuturesguild@gmail.com</p>
               </div>
             </div>
             <div class="contact-item">
@@ -489,14 +489,24 @@
 
         <!-- Right Side: The Frictionless Form with Native Validation -->
         <div class="contact-form-wrapper">
-          <form action="#" method="POST" class="elite-form">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="elite-form"
+          >
+            <input
+              type="hidden"
+              name="access_key"
+              value="611180c0-0d86-4cb4-a632-4c2c516f6a0b"
+            />
+
             <div class="form-row">
               <div class="input-group">
                 <label for="name">Your Name</label>
-                <!-- Requires at least 2 characters -->
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   placeholder="John Doe"
                   required
                   minlength="2"
@@ -505,10 +515,10 @@
               </div>
               <div class="input-group">
                 <label for="email">Email Address</label>
-                <!-- type="email" automatically checks for the @ symbol and valid domain structure -->
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   placeholder="john@company.com"
                   required
                 />
@@ -517,10 +527,10 @@
 
             <div class="input-group">
               <label for="company">Company Name</label>
-              <!-- Optional, but if filled, requires 2 characters minimum -->
               <input
                 type="text"
                 id="company"
+                name="company"
                 placeholder="Your Organization"
                 required
                 minlength="2"
@@ -530,9 +540,9 @@
 
             <div class="input-group">
               <label for="message">Project Details</label>
-              <!-- Prevents spam by requiring a meaningful message length -->
               <textarea
                 id="message"
+                name="message"
                 rows="4"
                 placeholder="Tell us what you're looking to achieve..."
                 required
@@ -591,7 +601,8 @@
         <div class="footer-col">
           <h4>CONNECT</h4>
           <p>
-            <i class="fa-regular fa-envelope"></i> hello@thefuturesguild.com
+            <i class="fa-regular fa-envelope"></i>
+            contact.thefuturesguild@gmail.com
           </p>
           <p><i class="fa-solid fa-location-dot"></i> Lahore, Pakistan</p>
         </div>
