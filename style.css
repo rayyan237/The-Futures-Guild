@@ -1,0 +1,1163 @@
+:root {
+  --dark-charcoal: #3c3636;
+  --medium-blue: #274cbb;
+  --white: #ffffff;
+  --bg-light: #f4f6f8;
+  --font-primary: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--dark-charcoal);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- FLUID TYPOGRAPHY & BADGES --- */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Auto-scales between mobile & desktop */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem); /* Auto-scales smoothly */
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+p {
+  color: #555;
+  font-weight: 500;
+}
+.highlight {
+  color: var(--medium-blue);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--white);
+  color: var(--medium-blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(39, 76, 187, 0.1);
+  margin-bottom: 20px;
+}
+
+/* --- PILL NAVBAR --- */
+.nav-wrapper {
+  position: absolute; 
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0 20px;
+}
+
+.navbar-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 50px;
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+  letter-spacing: -0.5px;
+}
+.nav-collapse {
+  display: contents; /* On desktop, acts like it doesn't exist, restoring perfect spacing */
+}
+.nav-links {
+  display: flex;
+  gap: 30px;
+  margin: 0 auto;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--medium-blue);
+}
+
+/* --- THE ORIGINAL CHARCOAL BUTTON --- */
+.btn-nav {
+  font-size: 13px;
+  background: var(--medium-blue);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-nav:hover {
+  /* background: var(--dark-charcoal); */
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* --- HAMBURGER MENU BASE --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001; 
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-charcoal);
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+/* --- HERO & BUTTONS --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 5%;
+  overflow: hidden;
+}
+
+#canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; 
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+.hero-content p {
+  font-size: 1.15rem;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+.btn-primary {
+  font-size: 15px;
+  background: var(--medium-blue);
+  color: var(--white);
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 2px solid var(--medium-blue);
+  cursor: pointer;
+  display: inline-block;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(39, 76, 187, 0.3);
+}
+.btn-secondary {
+  font-size: 15px;
+  background: var(--white);
+  color: var(--medium-blue);
+  padding: 14px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  display: inline-block;
+}
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  border: 2px solid rgba(39, 76, 187, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+.btn-full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- SECTION BACKGROUND UTILITIES --- */
+.bg-white { background-color: var(--white); }
+.bg-light { background-color: var(--bg-light); }
+
+/* --- CENTERED HEADER --- */
+.bento-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.bento-header .badge {
+  margin-bottom: 20px;
+}
+
+/* --- SOLID CONTAINER BENTO SERVICES --- */
+.services-solid-grid {
+  padding: 120px 5%;
+  background: var(--white);
+}
+.bento-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.bento-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 20px;
+}
+.bento-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ========================================= */
+/* --- INFORMATIVE FLIP BENTO CARDS ---      */
+/* ========================================= */
+
+.bento-card-wrapper {
+  background-color: transparent;
+  perspective: 1500px; /* Gives the 3D rotation depth */
+  display: block;
+  text-decoration: none;
+  min-height: 250px;
+  height: 100%; /* Ensures it fills the CSS grid cell */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform .7s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* The Trigger: Flips the card 180 degrees on hover */
+.bento-card-wrapper:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, 
+.flip-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- FRONT STYLING --- */
+.flip-card-front {
+  background-size: cover;
+  background-position: center;
+  justify-content: flex-start;
+}
+
+.flip-card-front h3 {
+  color: var(--white);
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- BACK STYLING --- */
+.flip-card-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center; /* Centers items perfectly in the middle */
+  text-align: center;  /* Centers the actual text */
+  padding: 30px 40px; /* Generous padding for text readability */
+}
+
+/* Vibrant background colors for the back side to match your requested palette */
+.back-dark { background: var(--dark-charcoal); }
+.back-blue { background: var(--medium-blue); }
+.back-red { background: #e03a3a; }
+.back-yellow { background: #e0a81d; }
+.back-purple { background: #6b38d9; }
+
+.flip-card-back h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--white);
+  font-weight: 800;
+}
+
+.flip-card-back p {
+  font-size: 0.85rem; /* Shrunk down slightly for better elegance */
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Mobile Adjustment for text fit */
+@media (max-width: 600px) {
+    .flip-card-back { padding: 25px; }
+    .flip-card-back h3 { font-size: 1.1rem; margin-bottom: 8px;}
+    .flip-card-back p { font-size: 0.8rem; } /* Further reduced for mobile */
+}
+/* --- THE ELITE ABOUT SECTION --- */
+.about-elite-section {
+  padding: 150px 5%;
+  background: var(--bg-light); 
+  position: relative;
+  overflow: hidden;
+}
+.about-elite-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-main-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  transition: transform 0.6s ease;
+}
+.about-visual:hover .about-main-img {
+  transform: scale(1.02);
+}
+.floating-stat {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.5s ease;
+  z-index: 3;
+}
+.about-visual:hover .floating-stat {
+  transform: translateY(-15px);
+}
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--medium-blue);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.stat-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--dark-charcoal);
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+.about-content-elite {
+  position: relative;
+  z-index: 2;
+}
+.elite-heading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
+}
+.elite-lead {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+.elite-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.elite-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.elite-feature:hover {
+  transform: translateX(15px);
+  box-shadow: 0 20px 50px rgba(39, 76, 187, 0.08);
+  border-color: rgba(39, 76, 187, 0.2);
+}
+.feature-icon {
+  font-size: 1.5rem;
+  color: var(--medium-blue);
+  background: rgba(39, 76, 187, 0.05);
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.elite-feature:hover .feature-icon {
+  background: var(--medium-blue);
+  color: var(--white);
+}
+.elite-feature h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--dark-charcoal);
+}
+.elite-feature p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- THE UPGRADED METHODOLOGY SECTION --- */
+.process-section {
+  padding: 120px 5%;
+}
+.process-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px auto;
+}
+.process-header .badge {
+  margin-bottom: 20px;
+}
+.process-header h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem); 
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--dark-charcoal);
+}
+.process-header p {
+  font-size: 1.15rem;
+  color: #666;
+}
+.methodology-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.methodology-line {
+  position: absolute;
+  top: 55px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: rgba(39, 76, 187, 0.2);
+  box-shadow: 0 0 12px rgba(39, 76, 187, 0.3);
+  z-index: 1;
+}
+.methodology-step {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.orb-wrapper {
+  position: relative;
+  margin-bottom: 25px;
+  width: 110px;
+  height: 110px;
+}
+.methodology-orb {
+  width: 100%;
+  height: 100%;
+  background: #f4f6f9;
+  border: 8px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: var(--dark-charcoal);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.methodology-step:hover .methodology-orb {
+  transform: scale(1.12);
+  box-shadow: 0 15px 40px rgba(39, 76, 187, 0.25);
+  background: var(--medium-blue);
+  color: var(--white);
+}
+.orb-number {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--medium-blue);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  transition: transform 0.4s ease;
+}
+.methodology-step:hover .orb-number {
+  transform: scale(1.05);
+}
+.methodology-step h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--dark-charcoal);
+}
+.methodology-step p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  max-width: 250px;
+}
+
+/* --- THE ELITE CONTACT SECTION --- */
+.contact-elite-section {
+  padding: 120px 5%;
+  background: var(--bg-light);
+}
+.contact-elite-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+.contact-heading {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: var(--dark-charcoal);
+}
+.contact-lead {
+  font-size: 1.15rem;
+  color: #666;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  max-width: 400px;
+}
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--white);
+  color: var(--medium-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.contact-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.contact-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  margin: 0;
+}
+.contact-form-wrapper {
+  background: var(--white);
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+.elite-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  margin-bottom: 8px;
+}
+.elite-form input,
+.elite-form textarea {
+  width: 100%;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--dark-charcoal);
+  transition: all 0.3s ease;
+}
+.elite-form input::placeholder,
+.elite-form textarea::placeholder {
+  color: #a0aec0;
+}
+.elite-form input:focus,
+.elite-form textarea:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--medium-blue);
+  box-shadow: 0 10px 25px rgba(39, 76, 187, 0.1);
+}
+
+/* --- THE ELITE FOOTER --- */
+.footer-elite {
+  background: var(--dark-charcoal);
+  color: var(--white);
+  padding: 100px 5% 30px 5%;
+  position: relative;
+}
+.footer-elite::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 50px;
+  margin-bottom: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+.brand-col p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  max-width: 320px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+.social-links a {
+  display: grid;
+  place-items: center; 
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.social-links a:hover {
+  background: var(--medium-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(39, 76, 187, 0.3);
+}
+.social-links a i {
+  display: block; 
+  font-size: 1.2rem; 
+  line-height: 2; 
+}
+.footer-col h4 {
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+  color: var(--white);
+  font-weight: 700;
+}
+.footer-col a {
+  display: block;
+  color: #a0aec0;
+  text-decoration: none;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.footer-col a:hover {
+  color: var(--white);
+  padding-left: 6px; 
+}
+.footer-col p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  font-size: 0.9rem;
+  color: #a0aec0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-legal a {
+  color: #a0aec0;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+.footer-legal a:hover {
+  color: var(--white);
+}
+/* --- SCROLL REVEAL ANIMATIONS --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Premium, smooth deceleration */
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ========================================= */
+/* --- GLOBAL RESPONSIVE MEDIA QUERIES ---   */
+/* ========================================= */
+
+/* 4K & Ultra-Wide Desktop Scaling */
+@media (min-width: 1800px) {
+  html { font-size: 18px; } 
+  .bento-container, .about-elite-container, .methodology-timeline, 
+  .contact-elite-container, .footer-grid, .footer-bottom {
+      max-width: 1500px;
+  }
+}
+
+/* Tablets & Small Laptops */
+@media (max-width: 1024px) {
+  .bento-layout { grid-template-columns: 1fr; }
+  .solid-card { min-height: 350px; }
+  .about-elite-container { grid-template-columns: 1fr; gap: 80px; }
+  .about-main-img { height: 450px; }
+}
+
+/* Large Phones & Small Tablets */
+@media (max-width: 900px) {
+  .methodology-timeline { flex-direction: column; gap: 60px; }
+  
+  /* Hides the methodology line completely so it doesn't break the design */
+  .methodology-line { display: none; }
+
+  .contact-elite-container { grid-template-columns: 1fr; gap: 60px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+}
+
+/* Standard Mobile Devices (Collapsible Navbar Implementation) */
+@media (max-width: 768px) {
+  .navbar-pill {
+      flex-wrap: nowrap; 
+      justify-content: space-between;
+  }
+  
+  .logo { order: 1; }
+  .menu-toggle { display: flex; order: 2; margin-left: auto; }
+
+  /* The wrapper becomes the visual dropdown box */
+  .nav-collapse {
+      display: flex; /* Turns off display:contents */
+      position: absolute;
+      top: 70px;
+      left: 5%;
+      right: 5%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+  }
+  
+  /* Active Mobile Dropdown */
+  .nav-collapse.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+  }
+
+  /* Stack the links inside the dropdown */
+  .nav-links {
+      margin: 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  /* Hamburger Animation */
+  .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 600px) {
+  .hero-btns { flex-direction: column; gap: 15px; }
+  .btn-primary, .btn-secondary { width: 100%; }
+  
+  .bento-subgrid { grid-template-columns: 1fr; }
+  .solid-card { min-height: 250px; }
+
+  /* Shrinks the large anchor card title to match the smaller cards */
+  .title-large {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+  }
+
+  .elite-feature { flex-direction: column; gap: 15px; padding: 25px; }
+  .about-main-img { height: 350px; }
+  .floating-stat { right: 5%; bottom: -15px; padding: 15px 25px; }
+  .stat-number { font-size: 2.5rem; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-grid { text-align: center; }
+  .brand-col p { margin: 0 auto 30px auto; }
+  .social-links { justify-content: center; }
+  .footer-col p { justify-content: center; }
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-legal a { margin: 0 10px; }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px) {
+  .navbar-pill { padding: 10px 15px; }
+  .logo { font-size: 16px; margin: 0; } /* Removed auto margin so it aligns left natively */
+
+  .contact-form-wrapper { padding: 25px 20px; }
+  .contact-item { flex-direction: column; align-items: center; text-align: center; }
+  .contact-icon { width: 45px; height: 45px; }
+}
+/* ========================================= */
+/* --- ACCESSIBILITY (a11y) ---              */
+/* ========================================= */
+
+/* Universal focus state for links, inputs, and textareas */
+*:focus-visible {
+    outline: 3px solid var(--medium-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Specific fix for rounded pill buttons */
+.btn-primary:focus-visible, 
+.btn-secondary:focus-visible, 
+.btn-nav:focus-visible {
+    border-radius: 50px;
+}
+
+/* ========================================= */
+/* --- CUSTOM AUTO-HIDING SCROLLBAR ---      */
+/* ========================================= */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* Hidden by default */
+}
+
+html.is-scrolling {
+  scrollbar-color: var(--medium-blue) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Slim, elegant profile */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Completely hidden track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Hidden by default */
+  border-radius: 10px;
+}
+
+/* When scrolling or hovering, reveal the thumb */
+html.is-scrolling::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--medium-blue);
+}
+
+/* Optional: Darker shade when actually clicking and dragging the scrollbar */
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--dark-charcoal);
+}
+
+/* ========================================= */
+/* --- ABOUT US PAGE SPECIFIC STYLES ---     */
+/* ========================================= */
+
+/* Dedicated About Hero with Canvas Support */
+.about-hero {
+  position: relative;
+  padding: 180px 5% 100px 5%; /* Extra top padding for the fixed navbar */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Keeps the particles contained */
+}
+
+/* Ensure the hero text sits ABOVE the 3D particles */
+.about-hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Core Values Grid */
+.core-values-section {
+  padding: 100px 5%;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(39, 76, 187, 0.08);
+  border-color: rgba(39, 76, 187, 0.1);
+}
+
+.value-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(39, 76, 187, 0.05);
+  color: var(--medium-blue);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  background: var(--medium-blue);
+  color: var(--white);
+}
+
+.value-card h3 {
+  font-size: 1.3rem;
+  color: var(--dark-charcoal);
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Future Roadmap Banner */
+.roadmap-banner {
+  padding: 100px 5%;
+  background: var(--medium-blue);
+  color: var(--white);
+  text-align: center;
+}
+
+.roadmap-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.roadmap-content h2 {
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.roadmap-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+/* Responsive Fixes for About Page */
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================= */
+/* --- FLOATING WHATSAPP BUTTON ---          */
+/* ========================================= */
+
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366; /* Official WhatsApp Green */
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Slightly larger for the brand icon */
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  z-index: 9999; /* Ensures it floats above absolutely everything */
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-whatsapp-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+  color: var(--white);
+}
+
+/* Mobile Adjustment: slightly smaller so it doesn't hide text */
+@media (max-width: 600px) {
+  .floating-whatsapp-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+}
